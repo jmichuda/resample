@@ -180,6 +180,7 @@ def bootstrap_ci(a, f=None, p=0.95, b=100, ci_method="percentile",
                          format(method=boot_method)))
 
     if (f is None) and boot:
+        # f is needed to compute bootstrap replicates
         raise ValueError("f is required when boot is True")
 
     if boot:
@@ -194,6 +195,7 @@ def bootstrap_ci(a, f=None, p=0.95, b=100, ci_method="percentile",
         return (q(alpha/2), q(1 - alpha/2))
     elif ci_method == "bca":
         if boot is False:
+            # boot must be True since we need original sample
             raise ValueError("boot must be True when"
                              " ci_method is 'bca'")
 
@@ -207,13 +209,13 @@ def bootstrap_ci(a, f=None, p=0.95, b=100, ci_method="percentile",
         jack_mean = np.mean(jack_est)
         acc = (np.sum((jack_mean - jack_est)**3) /
                (6 * np.sum((jack_mean - jack_est)**2)**(3/2)))
-        z_alpha1 = (norm.ppf(z_naught + (z_naught + z_alpha1) /
-                    (1 - acc * (z_naught + z_alpha1))))
-        z_alpha2 = (norm.ppf(z_naught + (z_naught + z_alpha2) /
-                    (1 - acc * (z_naught + z_alpha2))))
+        p1 = (norm.cdf(z_naught + (z_naught + z_low) /
+                       (1 - acc * (z_naught + z_low))))
+        p2 = (norm.cdf(z_naught + (z_naught + z_high) /
+                       (1 - acc * (z_naught + z_high))))
 
-        return (q(z_alpah1), q(z_alpah2))
+        return (q(p1), q(p2))
     else:
-        raise ValueError(("ci_method must be 'basic'"
-                          " {method} was supplied".
+        raise ValueError(("ci_method must be 'percentile'"
+                          " or 'bca', {method} was supplied".
                           format(method=ci_method)))
