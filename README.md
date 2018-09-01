@@ -1,4 +1,6 @@
-# resample: nonparametric, randomization-based inference in Python
+# resample
+
+---
 
 Description
 --------
@@ -23,3 +25,4 @@ Installation
 The latest release can be installed from PyPI:
 
     pip install resample
+
