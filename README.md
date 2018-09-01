@@ -1,7 +1,5 @@
 # resample
 
----
-
 Description
 --------
 
