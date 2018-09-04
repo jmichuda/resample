@@ -3,14 +3,14 @@
 Description
 --------
 
-resample provides a set of tools for performing nonparametric statistical inference in Python, primarily through the use of randomization tests and bootstrapping methods.
+resample provides a set of tools for performing nonparametric statistical inference in Python, primarily through the use of randomization tests and bootstrapping methods.  See the [example notebook](https://github.com/dsaxton/resample/blob/master/doc/resample.ipynb) for a brief tutorial.
 
 Features
 --------
 
-* Bootstrap confidence intervals
-* Randomization-based variants of traditional statistical tests
-* Tools for working with empirical distributions
+* Bootstrap confidence intervals (percentile, BCA, Studentized, all with optional stratification)
+* Randomization-based variants of traditional statistical tests (t-test, ANOVA F-test, K-S test, etc.)
+* Tools for working with empirical distributions (empirical cumulative distribution and quantile functions, distance metrics for comparing distributions)
 
 Dependencies
 ------------
