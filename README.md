@@ -3,7 +3,7 @@
 Description
 --------
 
-resample provides a set of tools for performing nonparametric statistical inference in Python, primarily through the use of randomization tests and bootstrapping methods.  See the [example notebook](https://github.com/dsaxton/resample/blob/master/doc/resample.ipynb) for a brief tutorial.
+`resample` provides a set of tools for performing nonparametric statistical inference in Python, primarily through the use of randomization tests and bootstrapping methods.  See the [example notebook](https://github.com/dsaxton/resample/blob/master/doc/resample.ipynb) for a brief tutorial.
 
 Features
 --------
