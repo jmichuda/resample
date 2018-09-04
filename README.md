@@ -8,7 +8,8 @@ resample provides a set of tools for performing nonparametric statistical infere
 Features
 --------
 
-* Bootstrap confidence intervals (percentile, BCA, Studentized, all with optional stratification)
+* Bootstrap samples (ordinary or balanced, both with optional stratification) of arrays with arbitrary dimension 
+* Bootstrap confidence intervals (percentile, BCA and Studentized) of any well-defined parameter
 * Randomization-based variants of traditional statistical tests (t-test, ANOVA F-test, K-S test, etc.)
 * Tools for working with empirical distributions (empirical cumulative distribution and quantile functions, distance metrics for comparing distributions)
 
