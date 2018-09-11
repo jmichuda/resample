@@ -3,11 +3,11 @@ from __future__ import division
 import numpy as np
 from resample.utils import eqf
 from scipy.stats import (norm, laplace,
-                         expon, gamma,
-                         uniform, f as F,
-                         t, beta, lognorm,
-                         pareto, logistic,
-                         invgauss)
+                         gamma, uniform,
+                         f as F, t, beta,
+                         lognorm, pareto,
+                         logistic, invgauss,
+                         poisson)
 
 
 def jackknife(a, f=None):
@@ -182,13 +182,13 @@ def param_bootstrap(a, f=None, b=100, family="gaussian",
         * 'laplace'
         * 'logistic'
         * 'F'
-        * 'exponential'
         * 'gamma'
         * 'log-normal'
         * 'inverse-gaussian'
         * 'pareto'
         * 'beta'
         * 'uniform'
+        * 'poisson'
     random_state : int or None
         Random number seed
 
@@ -238,12 +238,6 @@ def param_bootstrap(a, f=None, b=100, family="gaussian",
                     loc=theta[2],
                     scale=theta[3],
                     random_state=random_state)
-    elif family == "exponential":
-        theta = expon.fit(a)
-        arr = expon.rvs(size=n*b,
-                        loc=theta[0],
-                        scale=theta[1],
-                        random_state=random_state)
     elif family == "gamma":
         theta = gamma.fit(a)
         arr = gamma.rvs(size=n*b,
@@ -286,8 +280,13 @@ def param_bootstrap(a, f=None, b=100, family="gaussian",
                           loc=theta[0],
                           scale=theta[1],
                           random_state=random_state)
+    elif family == "poisson":
+        theta = np.mean(a)
+        arr = poisson.rvs(size=n*b,
+                          mu=theta
+                          random_state=random_state)
     else:
-        raise ValueError("family not supported")
+        raise ValueError("Invalid family")
 
     X = np.reshape(arr, newshape=(b, n))
 
@@ -327,13 +326,13 @@ def bootstrap_ci(a, f, p=0.95, b=100, ci_method="percentile",
         * 'laplace'
         * 'logistic'
         * 'F'
-        * 'exponential'
         * 'gamma'
         * 'log-normal'
         * 'inverse-gaussian'
         * 'pareto'
         * 'beta'
         * 'uniform'
+        * 'poisson'
     strata : array-like or None
         Stratification labels
     random_state : int or None
