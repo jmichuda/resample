@@ -18,6 +18,7 @@ def jackknife(a, f=None):
     ----------
     a : array-like
         Sample
+
     f : callable or None, default : None
         Estimator
 
@@ -43,6 +44,7 @@ def jackknife_bias(a, f):
     ----------
     a : array-like
         Sample
+
     f : callable
         Estimator
 
@@ -62,6 +64,7 @@ def jackknife_variance(a, f):
     ----------
     a : array-like
         Sample
+
     f : callable
         Estimator
 
@@ -84,6 +87,7 @@ def empirical_influence(a, f):
     ----------
     a : array-like
         Sample
+
     f : callable
         Estimator
 
