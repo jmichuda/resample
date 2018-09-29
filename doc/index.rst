@@ -6,15 +6,11 @@
 Welcome to resample's documentation!
 ====================================
 
+``resample`` provides a set of tools for performing randomization-based inference in Python, primarily through the use of bootstrapping methods and Monte Carlo permutation tests.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   bootstrap.rst
+   permutation.rst
+   utils.rst
