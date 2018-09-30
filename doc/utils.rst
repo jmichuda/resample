@@ -4,11 +4,10 @@ Utilities
 Features
 --------
 
-Examples
---------
-
-    >>> from resample.utils import ecdf, eqf
-    ...
+  * Empirical cumulative distribution function
+  * Empirical quantile function
+  * Mean integrated squared error
+  * Kolmogorov distance
 
 Docstrings
 ----------

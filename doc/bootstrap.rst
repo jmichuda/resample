@@ -4,9 +4,12 @@ Bootstrap
 Features
 --------
 
-  * Ordinary and balanced bootstrapping
+  * Ordinary, balanced and parametric bootstrapping
   * Stratification
   * Smoothing
+  * Bootstrap confidence intervals (percentile, BCA, Studentized)
+  * Jackknife samples and jackknife estimates of bias and variance
+  * Empirical influence functions
 
 Examples
 --------
